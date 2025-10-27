@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEPEP Weekly Reflection</title>
+    <style>
+        /* --- Basic Styling --- */
+        :root {
+            --primary-color: #2c3e50; /* A professional blue-grey */
+            --secondary-color: #3498db; /* A nice blue */
+            --background-color: #f4f7f6;
+            --text-color: #333;
+            --light-gray: #ecf0f1;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        p {
+            color: #7f8c8d;
+        }
+
+        /* --- Form Element Styling --- */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--primary-color);
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-sizing: border-box; /* Important for padding */
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* --- Success/Error Message Styling --- */
+        #success-message, #error-message {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+
+        #success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        #error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="form-container">
+        <header>
+            <h1>SEPEP Weekly Reflection</h1>
+            <p>Please take a few minutes to thoughtfully answer the questions below.</p>
+        </header>
+
+        <!-- IMPORTANT: Replace the action attribute with YOUR Formspree URL -->
+        <form id="reflection-form" action="https://formspree.io/f/xwpwvnyq" method="POST">
+            
+            <fieldset>
+                <legend>Student Information</legend>
+                
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="team">Your Team:</label>
+                <input type="text" id="team" name="team" required>
+
+                <label for="role">Your Role This Week:</label>
+                <select id="role" name="role" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="Player">Player</option>
+                    <option value="Coach">Coach</option>
+                    <option value="Captain">Captain</option>
+                    <option value="Umpire/Referee">Umpire/Referee</option>
+                    <option value="Team Manager">Team Manager</option>
+                    <option value="Statistician">Statistician</option>
+                    <option value="Publicist/Reporter">Publicist/Reporter</option>
+                    <option value="Equipment Manager">Equipment Manager</option>
+                </select>
+
+                <label for="week">Week Number:</label>
+                <input type="number" id="week" name="week" min="1" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>My Role & Teamwork</legend>
+                
+                <label for="role-success">Describe a moment you felt successful in your role. What made it successful?</label>
+                <textarea id="role-success" name="role_success" required></textarea>
+
+                <label for="teamwork">Describe a time this week when your team worked together really well.</label>
+                <textarea id="teamwork" name="teamwork" required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>My Performance & Fair Play</legend>
+                
+                <label for="skill-focus">What is one skill you focused on improving this week? Did you see progress?</label>
+                <textarea id="skill-focus" name="skill_focus" required></textarea>
+
+                <label for="effort">On a scale of 1 (low) to 5 (high), how would you rate your overall effort this week?</label>
+                <div class="radio-group">
+                    <input type="radio" id="effort-1" name="effort" value="1" required>
+                    <label for="effort-1">1</label>
+                    <input type="radio" id="effort-2" name="effort" value="2">
+                    <label for="effort-2">2</label>
+                    <input type="radio" id="effort-3" name="effort" value="3">
+                    <label for="effort-3">3</label>
+                    <input type="radio" id="effort-4" name="effort" value="4">
+                    <label for="effort-4">4</label>
+                    <input type="radio" id="effort-5" name="effort" value="5">
+                    <label for="effort-5">5</label>
+                </div>
+
+                <label for="sportsmanship">Give an example of how you showed good sportsmanship this week.</label>
+                <textarea id="sportsmanship" name="sportsmanship" required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Looking Ahead</legend>
+                
+                <label for="goal">What is one specific, achievable goal you have for yourself for next week's game?</label>
+                <textarea id="goal" name="goal" required></textarea>
+            </fieldset>
+
+            <button type="submit">Submit My Reflection</button>
+        </form>
+
+        <div id="success-message">
+            ✅ Thank you! Your reflection has been submitted successfully.
+        </div>
+        <div id="error-message">
+            ❌ Oops! Something went wrong. Please try again or tell your teacher.
+        </div>
+
+    </main>
+
+    <script>
+        const form = document.getElementById('reflection-form');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Stop the form from submitting the default way
+
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // If submission is successful
+                    form.style.display = 'none'; // Hide the form
+                    successMessage.style.display = 'block'; // Show success message
+                    form.reset(); // Clear the form fields for next time
+                } else {
+                    // If there's an error
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Handle network errors or other issues
+                console.error(error);
+                errorMessage.style.display = 'block'; // Show error message
+                setTimeout(() => {
+                    errorMessage.style.display = 'none'; // Hide error message after a few seconds
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
