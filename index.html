@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEPEP Weekly Reflection</title>
+    
+    <!-- Google Font for a more engaging look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* --- Basic Styling --- */
+        /* --- Engaging New Colour Palette & Styling --- */
         :root {
-            --primary-color: #2c3e50; /* A professional blue-grey */
-            --secondary-color: #3498db; /* A nice blue */
-            --background-color: #f4f7f6;
-            --text-color: #333;
-            --light-gray: #ecf0f1;
-            --border-color: #bdc3c7;
+            --primary-color: #0077b6; /* A strong, trustworthy blue */
+            --secondary-color: #00b4d8; /* A vibrant, energetic cyan */
+            --accent-color: #ff6b6b; /* A warm, engaging coral for actions */
+            --background-color: #f8f9fa; /* A very soft, light grey */
+            --text-color: #212529; /* A dark, soft black for readability */
+            --light-gray: #e9ecef;
+            --border-color: #ced4da;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             margin: 0;
@@ -29,12 +36,13 @@
 
         .form-container {
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Softer, deeper shadow */
             width: 100%;
             max-width: 700px;
-            border-top: 5px solid var(--primary-color);
+            /* A colourful left border instead of top */
+            border-left: 8px solid var(--secondary-color);
         }
 
         header {
@@ -43,37 +51,47 @@
         }
 
         h1 {
-            color: var(--primary-color);
+            /* New gradient for the main title */
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            font-weight: 700;
             margin: 0;
         }
 
         p {
-            color: #7f8c8d;
+            color: #6c757d;
+            font-size: 1.1em;
         }
 
         /* --- Form Element Styling --- */
         form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         fieldset {
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
+            background-color: #fdfdfd; /* Very subtle off-white */
         }
 
         legend {
-            font-weight: bold;
+            font-weight: 600;
             color: var(--primary-color);
             padding: 0 10px;
+            font-size: 1.1em;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--text-color);
         }
 
         input[type="text"],
@@ -82,11 +100,12 @@
         textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            box-sizing: border-box; /* Important for padding */
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            box-sizing: border-box;
             font-size: 16px;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease; /* Smooth transition for all changes */
         }
 
         input[type="text"]:focus,
@@ -95,7 +114,7 @@
         textarea:focus {
             outline: none;
             border-color: var(--secondary-color);
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2); /* A coloured glow */
         }
 
         textarea {
@@ -114,42 +133,45 @@
         }
 
         button {
-            background-color: var(--secondary-color);
+            /* New gradient for the submit button */
+            background: linear-gradient(90deg, var(--accent-color), #ff8787);
             color: white;
             border: none;
-            padding: 15px 20px;
+            padding: 15px 30px;
             font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
+            font-weight: 700;
+            border-radius: 50px; /* Pill shape */
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
             margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
         button:hover {
-            background-color: #2980b9;
+            transform: translateY(-2px); /* Lifts up on hover */
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
         }
 
         /* --- Success/Error Message Styling --- */
         #success-message, #error-message {
             text-align: center;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 18px;
             font-weight: bold;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
         #success-message {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: #d1e7dd;
+            color: #0f5132;
+            border: 1px solid #badbcc;
         }
 
         #error-message {
             background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            color: #842029;
+            border: 1px solid #f5c2c7;
         }
     </style>
 </head>
@@ -193,9 +215,11 @@
             <fieldset>
                 <legend>My Role & Teamwork</legend>
                 
+                <!-- REVERTED LABEL - EXAMPLES REMOVED -->
                 <label for="role-success">Describe a moment you felt successful in your role. What made it successful?</label>
                 <textarea id="role-success" name="role_success" required></textarea>
 
+                <!-- REVERTED LABEL - EXAMPLES REMOVED -->
                 <label for="teamwork">Describe a time this week when your team worked together really well.</label>
                 <textarea id="teamwork" name="teamwork" required></textarea>
             </fieldset>
@@ -249,7 +273,7 @@
         const errorMessage = document.getElementById('error-message');
 
         form.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Stop the form from submitting the default way
+            event.preventDefault();
 
             const formData = new FormData(form);
             
@@ -263,20 +287,17 @@
                 });
 
                 if (response.ok) {
-                    // If submission is successful
-                    form.style.display = 'none'; // Hide the form
-                    successMessage.style.display = 'block'; // Show success message
-                    form.reset(); // Clear the form fields for next time
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    form.reset();
                 } else {
-                    // If there's an error
                     throw new Error('Form submission failed');
                 }
             } catch (error) {
-                // Handle network errors or other issues
                 console.error(error);
-                errorMessage.style.display = 'block'; // Show error message
+                errorMessage.style.display = 'block';
                 setTimeout(() => {
-                    errorMessage.style.display = 'none'; // Hide error message after a few seconds
+                    errorMessage.style.display = 'none';
                 }, 5000);
             }
         });
